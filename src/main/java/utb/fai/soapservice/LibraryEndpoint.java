@@ -10,10 +10,10 @@ import com.example.book_web_service.Author;
 import com.example.book_web_service.Book;
 import com.example.book_web_service.GetBookRequest;
 import com.example.book_web_service.GetBookResponse;
+
+// nutne nejdrive nadefinovat CreateBookRequest a Reponse v books.xsd aby se tridy vygenerovali a import byl funkci
 import com.example.book_web_service.CreateBookRequest;
 import com.example.book_web_service.CreateBookResponse;
-import com.example.book_web_service.UpdateBookRequest;
-import com.example.book_web_service.UpdateBookResponse;
 
 import utb.fai.soapservice.Model.AuthorPersistent;
 import utb.fai.soapservice.Model.BookPersistent;
