@@ -35,6 +35,22 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="CreateBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="tns:Book" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CreateBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="tns:Book" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <!-- Stejný zpusobem definu i ostatni request/response... Zadani je v README. -->
 
 </xs:schema>

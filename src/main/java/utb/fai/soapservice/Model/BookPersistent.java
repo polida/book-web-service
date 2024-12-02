@@ -9,12 +9,16 @@ import jakarta.persistence.ManyToOne;
 /**
  * Entita knihy, ktera je ukladana do databaze
  */
+@Entity
 public class BookPersistent {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
 
+    @ManyToOne
     private AuthorPersistent author;
 
 }

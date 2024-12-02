@@ -21,26 +21,26 @@ public class LibraryService {
     private AuthorRepository authorRepository;
 
     public AuthorPersistent getAuthor(long authorId) {
-        return null;
+        return authorRepository.findById(authorId).orElse(null);
     }
-
     public BookPersistent getBook(long bookId) {
-        return null;
+        return bookRepository.findById(bookId).orElse(null);
     }
 
     public BookPersistent createBook(BookPersistent book) {
-        return null;
+        return bookRepository.save(book);
     }
 
     public void deleteBook(long bookId) {
-        
+        bookRepository.deleteById(bookId);
     }
 
     public AuthorPersistent createAuthor(AuthorPersistent author) {
-        return null;
+        return authorRepository.save(author);
     }
 
-    public void deleteAuthor(long authorId) {   
+    public void deleteAuthor(long authorId) {
+        authorRepository.deleteById(authorId);
     }
 
 }

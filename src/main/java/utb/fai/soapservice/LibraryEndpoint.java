@@ -18,14 +18,15 @@ import com.example.book_web_service.CreateBookResponse;
 import utb.fai.soapservice.Model.AuthorPersistent;
 import utb.fai.soapservice.Model.BookPersistent;
 
-import com.example.book_web_service.DeleteBookRequest;
-import com.example.book_web_service.DeleteBookResponse;
-import com.example.book_web_service.GetAuthorRequest;
-import com.example.book_web_service.GetAuthorResponse;
-import com.example.book_web_service.CreateAuthorRequest;
-import com.example.book_web_service.CreateAuthorResponse;
-import com.example.book_web_service.DeleteAuthorRequest;
-import com.example.book_web_service.DeleteAuthorResponse;
+import com.example.book_web_service.GetBookRequest;
+//import com.example.book_web_service.DeleteBookRequest;
+//import com.example.book_web_service.DeleteBookResponse;
+//import com.example.book_web_service.GetAuthorRequest;
+//import com.example.book_web_service.GetAuthorResponse;
+//import com.example.book_web_service.CreateAuthorRequest;
+//import com.example.book_web_service.CreateAuthorResponse;
+//import com.example.book_web_service.DeleteAuthorRequest;
+//import com.example.book_web_service.DeleteAuthorResponse;
 
 @Endpoint
 public class LibraryEndpoint {
@@ -37,15 +38,17 @@ public class LibraryEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getBookRequest")
     @ResponsePayload
     public GetBookResponse getBook(@RequestPayload GetBookRequest request) {
-        // TODO: implement getBook
         return null;
     }
-
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "createBookRequest")
     @ResponsePayload
     public CreateBookResponse createBook(@RequestPayload CreateBookRequest request) {
-        // TODO: implement createBook
         return null;
+    }
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteBookRequest")
+    @ResponsePayload
+    public GetBookRequest getBookRequest(@RequestPayload Long id) {
+        return libraryService.getBook(id);
     }
 
     // TODO: define this requests updateBookRequest, deleteBookRequest, getAuthorRequest, createAuthorRequest, deleteAuthorRequest
