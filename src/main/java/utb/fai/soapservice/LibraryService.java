@@ -1,5 +1,6 @@
 package utb.fai.soapservice;
 
+import com.example.book_web_service.Author;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,14 +22,19 @@ public class LibraryService {
     private AuthorRepository authorRepository;
 
     public AuthorPersistent getAuthor(long authorId) {
-        return authorRepository.findById(authorId).orElse(null);
+        var author = authorRepository.findById(authorId);
+        return author.orElse(null);
+
     }
     public BookPersistent getBook(long bookId) {
-        return bookRepository.findById(bookId).orElse(null);
+        var book = bookRepository.findById(bookId);
+        return book.orElse(null);
     }
 
     public BookPersistent createBook(BookPersistent book) {
-        return bookRepository.save(book);
+         authorRepository.save(book.getAuthor());
+         bookRepository.save(book);
+         return book;
     }
 
     public void deleteBook(long bookId) {
@@ -36,11 +42,23 @@ public class LibraryService {
     }
 
     public AuthorPersistent createAuthor(AuthorPersistent author) {
-        return authorRepository.save(author);
+        authorRepository.save(author);
+        return author;
     }
 
     public void deleteAuthor(long authorId) {
+        var books = bookRepository.findAll();
+        for (var book : books) {
+            if (book.getAuthor().getId() == authorId) {
+                bookRepository.deleteById(book.getId());
+            }
+        }
         authorRepository.deleteById(authorId);
+        }
+
+    public BookPersistent updateBook(BookPersistent book) {
+        bookRepository.save(book);
+        return book;
     }
 
 }
